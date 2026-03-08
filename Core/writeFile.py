@@ -1,13 +1,19 @@
 import pandas as pd
-from pathlib import Path
+from pathlib import *
+import sys
 
 def WriteFile():
+    if getattr(sys, 'frozen', False):
+        base_dir = Path(sys.executable).parent.resolve()
+    else:
+        base_dir = Path(__file__).parent.parent.resolve()
+
     # Força a buscar/salvar os arquivos a partir da pasta real do projeto
     core_dir = Path(__file__).parent.resolve()
     project_dir = core_dir.parent
 
-    csv_path = project_dir / "List" / "ListaBets.csv"
-    hosts_path = project_dir / "hosts"
+    csv_path = base_dir / "List" / "ListaBets.csv"
+    hosts_path = base_dir / "hosts"
 
     if not csv_path.exists():
         print(f"[!] Erro: Lista não encontrada em {csv_path}")

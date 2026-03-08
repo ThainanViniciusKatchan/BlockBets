@@ -3,13 +3,17 @@ import ctypes
 import os
 from pathlib import Path
 from time import sleep
+from datetime import datetime
 
 def is_admin():
     return ctypes.windll.shell32.IsUserAnAdmin() != 0
 
 def Adm():
-    script_path = os.path.abspath(sys.argv[0])
-    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, f'"{script_path}"', None, 1)
+    if getattr(sys, 'frozen', False):
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, "", None, 1)
+    else:
+        script_path = os.path.abspath(sys.argv[0])
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, f'"{script_path}"', None, 1)
     sys.exit()
 
 def modfile():
@@ -17,9 +21,13 @@ def modfile():
         print("[!] Solicitando privilégios de Administrador...")
         Adm()
 
-    script_dir = Path(__file__).parent.resolve()
+    if getattr(sys, 'frozen', False):
+        base_dir = Path(sys.executable).parent.resolve()
+    else:
+        base_dir = Path(__file__).parent.parent.resolve()
 
-    NewFile = script_dir.parent / "hosts"
+
+    NewFile = base_dir / "hosts"
     hostPath = r"C:\Windows\System32\drivers\etc\hosts"
 
     if NewFile.exists():
@@ -42,6 +50,8 @@ def modfile():
         with open(hostPath, 'w', encoding='utf-8') as dst:
             print("Bloqueando as BETS...")
             sleep(5)
+            dst.write(f"# Bets Bloqueadas por BlockBets em {datetime.now().strftime('%d-%m-%y %H:%M:%S')}\n")
+            dst.write("\n")
             dst.write(conteudo)
 
         print(f"\n[✓] Sucesso! Arquivo Hosts modificado em {hostPath}\n e BETS bloqueadas neste computador!.")

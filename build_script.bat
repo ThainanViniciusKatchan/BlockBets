@@ -18,7 +18,8 @@ if errorlevel 1 (
 
 echo [3/3] Copiando ListaBets.csv para a pasta dist...
 if not exist dist mkdir dist
-copy /Y List\ListaBets.csv dist\ListaBets.csv
+if not exist dist\List mkdir dist\List
+copy /Y List\ListaBets.csv dist\List\ListaBets.csv
 
 if errorlevel 1 (
     echo Erro ao copiar ListaBets.csv para dist.
@@ -28,3 +29,4 @@ if errorlevel 1 (
 echo Build finalizada com sucesso.
 endlocal
 pause
+exit /b
