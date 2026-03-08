@@ -25,4 +25,6 @@ Para criar seu próprio executável, siga os seguintes passos:
 ### Contribua para o projeto
 Se você deseja contribuir para o projeto, sinta-se à vontade para fazer um fork do repositório e enviar um pull request com suas melhorias.
 
+## A lista das Bets foram retiradas do site https://www.gov.br/fazenda/pt-br/composicao/orgaos/secretaria-de-premios-e-apostas/lista-de-empresas
+
 # #brazilian accelerationism 
