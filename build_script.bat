@@ -6,10 +6,14 @@ if exist build rmdir /s /q build
 if exist dist rmdir /s /q dist
 
 echo [2/3] Gerando executavel com PyInstaller...
-echo [Instalando Dependencias]
+echo [Instalando Dependencias]7
+python.exe -m pip install --upgrade pip
 pip install pyinstaller
 pip install pandas openpyxl
-pyinstaller --onefile ./main.py
+pip install Pillow
+
+echo [COMPILANDO PROJETO]
+pyinstaller --onefile --clean --icon assets/256x256.ico --name BlockBets ./main.py
 
 if errorlevel 1 (
     echo Erro durante a build com PyInstaller.
