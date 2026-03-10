@@ -55,14 +55,12 @@ def modfile():
             dst.write(conteudo)
 
         print(f"\n[✓] Sucesso! Arquivo Hosts modificado em {hostPath}\n e BETS bloqueadas neste computador!.")
-        input("\nPressione Enter para sair...")
 
     except PermissionError:
         print("\n[!] Permissão Negada! O seu Antivírus (ex: Windows Defender) está bloqueando a alteração.")
         print("-> Tente desativar a proteção em tempo real rapidamente ou coloque a pasta nas exclusões.")
     except Exception as e:
         print(f"\n[!] Ocorreu um erro: {e}")
-        input("\nPressione Enter para sair...")
 
     input("\nPressione Enter para sair...")
 

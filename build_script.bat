@@ -32,5 +32,4 @@ if errorlevel 1 (
 
 echo Build finalizada com sucesso.
 endlocal
-pause
 exit /b
