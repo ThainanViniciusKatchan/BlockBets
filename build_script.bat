@@ -3,7 +3,7 @@ setlocal
 
 echo [1/3] Limpando build anterior...
 if exist build rmdir /s /q build
-if exist dist rmdir /s /q dist
+if exist dist rmdir /s /q dist/Win
 
 echo [2/2] Gerando executavel com PyInstaller...
 echo [Instalando Dependencias]
@@ -13,7 +13,7 @@ pip install pandas openpyxl
 pip install Pillow
 
 echo [COMPILANDO PROJETO]
-pyinstaller --onefile --clean --icon assets/256x256.ico --name BlockBets ./main.py
+pyinstaller --onefile --clean --icon assets/256x256.ico --distpath ./dist/Win  --name BlockBets ./main.py
 
 if errorlevel 1 (
     echo Erro durante a build com PyInstaller.
