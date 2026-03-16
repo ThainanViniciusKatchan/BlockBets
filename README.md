@@ -31,7 +31,7 @@ adicionando eles ao arquivo hosts do Sistema
 Para criar seu próprio executável, siga os seguintes passos:
 1. Clone o repositório do projeto
 2. Execute o arquivo build_script.bat no Windows ou o arquivo Build_Linux.sh no Linux
-3. Abra o arquivo BlockBets.exe na pasta dist na raiz do projeto
+3. Abra o arquivo BlockBets.exe na pasta dist/win/ na raiz do projeto ou no linux o arquivo StartBlockBet.sh na pasta dist/Linux
 
 # Muito obrigado por usar o BlockBets!
 ### Brasil contra as bets
