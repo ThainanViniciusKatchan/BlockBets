@@ -24,8 +24,7 @@ adicionando eles ao arquivo hosts do Sistema
  * Digite a sua Senha Root
  * Deixe o script trabalhar 
  * Verifique se os sites estão bloqueados acessando-os no navegador
- * Verifique se os sites estão bloqueados acessando-os no navegador
-
+ * Caso não funcione, tente reiniciar o computador ou limpar o cache do navegador
 
 # Como criar seu executável
 Para criar seu próprio executável, siga os seguintes passos:
